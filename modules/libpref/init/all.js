@@ -529,36 +529,31 @@ pref("toolkit.sqlitejsm.loglevel", "Error");
 
 pref("toolkit.tabbox.switchByScrolling", false);
 
-// Telemetry settings.
+// Telemetry settings - DISABLED for privacy-focused build
 // Server to submit telemetry pings to.
-pref("toolkit.telemetry.server", "https://incoming.telemetry.mozilla.org");
-// Telemetry server owner. Please change if you set toolkit.telemetry.server to a different server
-pref("toolkit.telemetry.server_owner", "Mozilla");
+pref("toolkit.telemetry.server", "");
+// Telemetry server owner.
+pref("toolkit.telemetry.server_owner", "");
 // Determines whether full SQL strings are returned when they might contain sensitive info
-// i.e. dynamically constructed SQL strings or SQL executed by addons against addon DBs
 pref("toolkit.telemetry.debugSlowSql", false);
-// Whether to use the unified telemetry behavior, requires a restart.
-pref("toolkit.telemetry.unified", true);
+// Whether to use the unified telemetry behavior.
+pref("toolkit.telemetry.unified", false);
 
-// DAP related preferences
+// DAP related preferences - DISABLED
 pref("toolkit.telemetry.dap_enabled", false);
-pref("toolkit.telemetry.dap.logLevel", "Warn");
+pref("toolkit.telemetry.dap.logLevel", "");
 // Verification tasks
 pref("toolkit.telemetry.dap_task1_enabled", false);
 pref("toolkit.telemetry.dap_task1_taskid", "");
 // URL visit counting
 pref("toolkit.telemetry.dap_visit_counting_enabled", false);
 // Note: format of patterns is "<proto>://<host>/<path>"
-// See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
 pref("toolkit.telemetry.dap_visit_counting_experiment_list", "[]");
-// DAP protocol Leader endpoint. Operated by DivviUp/ISRG.
-// - HPKE key is base64url-encoded response of the /hpke_config path on server.
-pref("toolkit.telemetry.dap.leader.url", "https://dap-09-3.api.divviup.org");
-pref("toolkit.telemetry.dap.leader.hpke", "ACkAACAAAQABACDk8wgwe2-TqHyaL74uqjVWMcF1zi9pxiwQhu4aPwncYw");
-// DAP protocol Helper endpoint. Operated by Mozilla.
-// - HPKE key is base64url-encoded response of the /hpke_config path on server.
-pref("toolkit.telemetry.dap.helper.url", "https://dap.services.mozilla.com");
-pref("toolkit.telemetry.dap.helper.hpke", "ACkAACAAAQABACAucqWdIQRN6BxumPBRXIlg2JsxcznwWX7vyqzM3cjuQA");
+// DAP protocol endpoints - DISABLED
+pref("toolkit.telemetry.dap.leader.url", "");
+pref("toolkit.telemetry.dap.leader.hpke", "");
+pref("toolkit.telemetry.dap.helper.url", "");
+pref("toolkit.telemetry.dap.helper.hpke", "");
 
 // Controls telemetry logs for the Translations feature throughout Firefox.
 pref("toolkit.telemetry.translations.logLevel", "Error");
@@ -3721,24 +3716,24 @@ pref("toolkit.aboutProcesses.profileDuration", 5);
 pref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
 
 #ifdef MOZ_DATA_REPORTING
-  pref("datareporting.policy.dataSubmissionEnabled", true);
+  // Data reporting - DISABLED for privacy-focused build
+  pref("datareporting.policy.dataSubmissionEnabled", false);
   pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "0");
   pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 0);
   pref("datareporting.policy.currentPolicyVersion", 2);
   pref("datareporting.policy.minimumPolicyVersion", 1);
   pref("datareporting.policy.minimumPolicyVersion.channel-beta", 2);
-  pref("datareporting.policy.firstRunURL", "https://www.mozilla.org/privacy/firefox/");
-  pref("datareporting.policy.dataSubmissionPolicyBypassNotification", false);
+  pref("datareporting.policy.firstRunURL", "");
+  pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true);
 #endif
 
 #ifdef MOZ_SERVICES_HEALTHREPORT
   #if !defined(ANDROID)
-    pref("datareporting.healthreport.infoURL", "https://www.mozilla.org/legal/privacy/firefox.html#health-report");
+    // Health Report - DISABLED for privacy-focused build
+    pref("datareporting.healthreport.infoURL", "");
 
-    // Health Report is enabled by default on all channels.
-    // Do note that the toggle on Fenix and Focus does NOT reflect to this pref.
-    pref("datareporting.healthreport.uploadEnabled", true);
-    pref("datareporting.usage.uploadEnabled", true);
+    pref("datareporting.healthreport.uploadEnabled", false);
+    pref("datareporting.usage.uploadEnabled", false);
   #endif
 #endif
 
