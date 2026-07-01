@@ -11,3 +11,14 @@
 # For the mozilla-aurora repository, use "aurora".
 MOZ_BRANDING_DIRECTORY=browser/branding/unofficial
 MOZ_OFFICIAL_BRANDING_DIRECTORY=browser/branding/official
+
+# KEC Firefox Privacy-Focused Build Configuration
+# Disable all telemetry and data collection by default
+MOZ_TELEMETRY_REPORTING=0
+MOZ_DATA_REPORTING=0
+MOZ_NORMANDY=0
+MOZILLA_OFFICIAL=0
+
+# Disable experiments
+MOZ_EXPERIMENTS=0
+MOZ_SHIELD=0

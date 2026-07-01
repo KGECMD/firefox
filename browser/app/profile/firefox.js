@@ -1889,31 +1889,31 @@ pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-a", false);
 pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-b", false);
 pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-c", false);
 
-// Mozilla Ad Routing Service (MARS) unified ads service
-pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", true);
-pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", true);
-pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "https://ads.mozilla.org/");
+// Mozilla Ad Routing Service (MARS) unified ads service - DISABLED for privacy-focused build
+pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", false);
+pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", false);
+pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "");
 pref("browser.newtabpage.activity-stream.unifiedAds.adsFeed.enabled", false);
-pref("browser.newtabpage.activity-stream.unifiedAds.ohttp.enabled", true);
+pref("browser.newtabpage.activity-stream.unifiedAds.ohttp.enabled", false);
 
-// Weather widget for newtab
-pref("browser.newtabpage.activity-stream.showWeather", true);
+// Weather widget for newtab - DISABLED for privacy-focused build
+pref("browser.newtabpage.activity-stream.showWeather", false);
 pref("browser.newtabpage.activity-stream.weather.query", "");
 pref("browser.newtabpage.activity-stream.weather.display", "detailed");
 
 pref("browser.newtabpage.activity-stream.images.smart", true);
 
-// enable location search for newtab weather widget
-pref("browser.newtabpage.activity-stream.weather.locationSearchEnabled", true);
+// enable location search for newtab weather widget - DISABLED
+pref("browser.newtabpage.activity-stream.weather.locationSearchEnabled", false);
 
-// List of regions that get weather by default.
-pref("browser.newtabpage.activity-stream.discoverystream.region-weather-config", "AT,BE,BG,CA,CH,CY,CZ,DE,DK,EE,ES,FI,FR,GB,GR,HR,HU,IE,IS,IT,LI,LT,LV,MT,NL,NO,PL,PT,RO,SE,SI,SK,US");
+// List of regions that get weather by default - DISABLED
+pref("browser.newtabpage.activity-stream.discoverystream.region-weather-config", "");
 
-// List of locales that weather widget supports.
-pref("browser.newtabpage.activity-stream.discoverystream.locale-weather-config", "bg,cs,da,de,el,en-CA,en-GB,en-US,es-ES,et,fi,fr,hr,hu,is,it,lv,nb-NO,nl,pl,pt-PT,ro,sk,sl,sv-SE,tr");
+// List of locales that weather widget supports - DISABLED
+pref("browser.newtabpage.activity-stream.discoverystream.locale-weather-config", "");
 
-// Promo card visibility
-pref("browser.newtabpage.activity-stream.discoverystream.promoCard.visible", true);
+// Promo card visibility - DISABLED for privacy-focused build
+pref("browser.newtabpage.activity-stream.discoverystream.promoCard.visible", false);
 
 // Preference to enable wallpaper selection in the Customize Menu of new tab page
 pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
@@ -2057,29 +2057,31 @@ pref("browser.newtabpage.activity-stream.discoverystream.sections.contextualAds.
 
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.endpoint", "merino.services.mozilla.com");
 pref("browser.newtabpage.activity-stream.discoverystream.merino-provider.ohttp.enabled", false);
-pref("browser.newtabpage.activity-stream.discoverystream.ohttp.relayURL", "https://mozilla-ohttp.fastly-edge.com/");
-pref("browser.newtabpage.activity-stream.discoverystream.ohttp.configURL", "https://prod.ohttp-gateway.prod.webservices.mozgcp.net/ohttp-configs");
-pref("browser.newtabpage.activity-stream.discoverystream.imageProxy.enabled", true);
+// OHTTP config - DISABLED for privacy-focused build
+pref("browser.newtabpage.activity-stream.discoverystream.ohttp.relayURL", "");
+pref("browser.newtabpage.activity-stream.discoverystream.ohttp.configURL", "");
+pref("browser.newtabpage.activity-stream.discoverystream.imageProxy.enabled", false);
 
-// List of regions that get spocs by default.
-pref("browser.newtabpage.activity-stream.discoverystream.region-spocs-config", "US,CA,DE,GB,FR,IT,ES");
+// List of regions that get spocs by default - DISABLED
+pref("browser.newtabpage.activity-stream.discoverystream.region-spocs-config", "");
 // List of regions that don't get the 7 row layout.
 pref("browser.newtabpage.activity-stream.discoverystream.region-basic-config", "");
 
-// Add parameters to Pocket feed URL.
+// Pocket feed - DISABLED for privacy-focused build
 pref("browser.newtabpage.activity-stream.discoverystream.pocket-feed-parameters", "");
 pref("browser.newtabpage.activity-stream.discoverystream.merino-feed-experiment", false);
 
-// List of locales that get thumbs up/down on recommended stories by default.
-pref("browser.newtabpage.activity-stream.discoverystream.thumbsUpDown.locale-thumbs-config", "en-US, en-GB, en-CA");
+// List of locales that get thumbs up/down on recommended stories by default - DISABLED
+pref("browser.newtabpage.activity-stream.discoverystream.thumbsUpDown.locale-thumbs-config", "");
 
-pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", true);
+// Activity Stream telemetry - DISABLED for privacy-focused build
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false);
 
 // Redacts content interaction ids from original New Tab ping once data processing migrated to the Newtab_content private ping
-pref("browser.newtabpage.activity-stream.telemetry.privatePing.redactNewtabPing.enabled", true);
-pref("browser.newtabpage.activity-stream.telemetry.privatePing.maxSubmissionDelayMs", 5000);
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.redactNewtabPing.enabled", false);
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.maxSubmissionDelayMs", 0);
 
-  // Include differentialy private inferred New Tab interests with New Tab content Ping. Only used when user has enabled personalization.
+// Include differentialy private inferred New Tab interests with New Tab content Ping. Only used when user has enabled personalization.
 pref("browser.newtabpage.activity-stream.telemetry.privatePing.inferredInterests.enabled", false);
 
 // surface ID sent from merino to the client from the curated-recommendations request
@@ -2172,18 +2174,15 @@ pref("nimbus.profilesdatastoreservice.read.enabled", true);
 // TODO(bug 2032586): Remove this pref.
 pref("nimbus.profilesdatastoreservice.sync.enabled", true);
 
-// Enable the targeting context telemetry by default, but allow it to be
-// disabled, e.g., for artifact builds.
-// See-also: https://bugzilla.mozilla.org/show_bug.cgi?id=1936317
-// See-also: https://bugzilla.mozilla.org/show_bug.cgi?id=1936319
+// Targeting context telemetry - DISABLED for privacy-focused build
 #if defined(MOZ_ARTIFACT_BUILDS)
   pref("nimbus.telemetry.targetingContextEnabled", false);
 #else
-  pref("nimbus.telemetry.targetingContextEnabled", true);
+  pref("nimbus.telemetry.targetingContextEnabled", false);
 #endif
 
-// Enable Rollouts by default.
-pref("nimbus.rollouts.enabled", true);
+// Disable Rollouts for privacy-focused build
+pref("nimbus.rollouts.enabled", false);
 
 // Nimbus QA prefs. Used to monitor pref-setting test experiments.
 pref("nimbus.qa.pref-1", "default");
@@ -2378,7 +2377,7 @@ pref("identity.fxaccounts.commands.remoteTabManagement.enabled", true);
 
 // Controls whether or not the client association ping has values set on it
 // when the sync-ui-state:update notification fires.
-pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", true);
+pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false);
 
 // Note: when media.gmp-*.visible is true, provided we're running on a
 // supported platform/OS version, the corresponding CDM appears in the
@@ -2442,23 +2441,23 @@ pref("browser.translations.select.enable", true);
 // Enable the Translations QuickAction in the URL bar.
 pref("browser.translations.quickAction.enabled", true);
 
-// Telemetry settings.
+// Telemetry settings - DISABLED for privacy-focused build
 // Determines if Telemetry pings can be archived locally.
-pref("toolkit.telemetry.archive.enabled", true);
+pref("toolkit.telemetry.archive.enabled", false);
 // Enables sending the shutdown ping when Firefox shuts down.
-pref("toolkit.telemetry.shutdownPingSender.enabled", true);
+pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 // Enables using the `pingsender` background task.
 pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false);
 // Enables sending the shutdown ping using the pingsender from the first session.
 pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false);
 // Enables sending a duplicate of the first shutdown ping from the first session.
-pref("toolkit.telemetry.firstShutdownPing.enabled", true);
+pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 // Enables sending the 'new-profile' ping on new profiles.
-pref("toolkit.telemetry.newProfilePing.enabled", true);
+pref("toolkit.telemetry.newProfilePing.enabled", false);
 // Enables sending 'update' pings on Firefox updates.
-pref("toolkit.telemetry.updatePing.enabled", true);
+pref("toolkit.telemetry.updatePing.enabled", false);
 // Enables sending 'bhr' pings when the browser hangs.
-pref("toolkit.telemetry.bhrPing.enabled", true);
+pref("toolkit.telemetry.bhrPing.enabled", false);
 
 // Enable GMP support in the addon manager.
 pref("media.gmp-provider.enabled", true);
@@ -2580,35 +2579,27 @@ pref("browser.contentblocking.report.monitor.enabled", false);
   pref("browser.contentblocking.report.privacy_metrics.enabled", false);
 #endif
 
-// Disable the mobile promotion by default.
-pref("browser.contentblocking.report.show_mobile_app", true);
+// Disable promos for privacy-focused build
+pref("browser.contentblocking.report.show_mobile_app", false);
 
 // Locales in which Send to Device emails are supported
-// The most recent list of supported locales can be found at https://github.com/mozilla/bedrock/blob/6a08c876f65924651554decc57b849c00874b4e7/bedrock/settings/base.py#L963
-pref("browser.send_to_device_locales", "de,en-GB,en-US,es-AR,es-CL,es-ES,es-MX,fr,id,pl,pt-BR,ru,zh-TW");
+pref("browser.send_to_device_locales", "");
 
-// Avoid advertising in certain regions. Comma separated string of two letter ISO 3166-1 country codes.
-pref("browser.vpn_promo.disallowed_regions", "ae,by,cn,cu,iq,ir,kp,om,ru,sd,sy,tm,tr");
+// Avoid advertising in certain regions.
+pref("browser.vpn_promo.disallowed_regions", "");
 
-// Default to enabling VPN promo messages to be shown when specified and allowed
-pref("browser.vpn_promo.enabled", true);
-// Only show vpn card to certain regions. Comma separated string of two letter ISO 3166-1 country codes.
-// The most recent list of supported countries can be found at https://support.mozilla.org/en-US/kb/mozilla-vpn-countries-available-subscribe
-// The full lists of supported country codes can also be found at https://github.com/mozilla/bedrock/search?q=VPN_COUNTRY_CODES and https://github.com/mozilla/bedrock/search?q=VPN_MOBILE_SUB_COUNTRY_CODES
-pref("browser.contentblocking.report.vpn_regions", "as,at,au,bd,be,bg,br,ca,ch,cl,co,cy,cz,de,dk,ee,eg,es,fi,fr,gb,gg,gr,hr,hu,id,ie,im,in,io,it,je,ke,kr,lt,lu,lv,ma,mp,mt,mx,my,ng,nl,no,nz,pl,pr,pt,ro,sa,se,sg,si,sk,sn,th,tr,tw,ua,ug,uk,um,us,vg,vi,vn,za");
+// Disable VPN promo messages for privacy-focused build
+pref("browser.vpn_promo.enabled", false);
+pref("browser.contentblocking.report.vpn_regions", "");
 
-// Avoid advertising Focus in certain regions.  Comma separated string of two letter
-// ISO 3166-1 country codes.
-pref("browser.promo.focus.disallowed_regions", "cn");
+// Disable Focus promos for privacy-focused build
+pref("browser.promo.focus.disallowed_regions", "");
+pref("browser.promo.focus.enabled", false);
 
-// Default to enabling focus promos to be shown where allowed.
-pref("browser.promo.focus.enabled", true);
+// Disable pin promos
+pref("browser.promo.pin.enabled", false);
 
-// Default to enabling pin promos to be shown where allowed.
-pref("browser.promo.pin.enabled", true);
-
-// Default to enabling cookie banner reduction promos to be shown where allowed.
-// Set to true for Fx113 (see bug 1808611)
+// Disable cookie banner reduction promos
 pref("browser.promo.cookiebanners.enabled", false);
 
 pref("browser.contentblocking.report.hide_vpn_banner", false);
@@ -3649,3 +3640,194 @@ pref("distribution.mozillaonline.ignore", true);
 #ifdef XP_MACOSX
   pref("browser.macAppMenu.setAsDefaultShown", false);
 #endif
+
+// ============================================================
+// KEC Firefox Privacy-Focused Build Enhancements
+// ============================================================
+
+// Enable HTTPS-Only Mode by default
+pref("dom.security.https_only_mode", true);
+pref("dom.security.https_only_mode.pbmode", true);
+
+// Enable DNS-over-HTTPS (DoH) - using Cloudflare's privacy-friendly resolver
+pref("network.trr.mode", 2);  // 2 = TRR first, fallback to native
+pref("network.trr.uri", "https://cloudflare-dns.com/dns-query");
+pref("network.trr.allowRFC1918", false);
+pref("network.trr.useGET", true);
+pref("network.trr.confirmationNS", "cloudflare-dns.com");
+
+// Enable DNS-over-HTTPS in private browsing mode
+pref("network.trr.private_transient_active", true);
+
+// Enhanced tracking protection
+pref("privacy.trackingprotection.enabled", true);
+pref("privacy.trackingprotection.social_tracking.enabled", true);
+
+// Enable total cookie protection (supercookie protection)
+pref("privacy.cookie.totalBounceProtection.enabled", true);
+
+// Enable RFP (Resist Fingerprinting)
+pref("privacy.resistFingerprinting", true);
+pref("privacy.resistFingerprinting.letterboxing", true);
+
+// WebRTC leak protection
+pref("media.peerconnection.ice.default_address_only", true);
+pref("media.peerconnection.ice.no_host_candidates", true);
+pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+pref("media.peerconnection.sdp.simulcast", false);
+pref("media.peerconnection.webrtc.h264_video_sessions", false);
+
+// Canvas fingerprint protection
+pref("canvas.randomness.override", "random");
+
+// Font fingerprint protection - limited list of safe fonts
+pref("browser.display.use_document_fonts", 0);  // Use only system fonts
+
+// WebGL - disable for fingerprinting protection
+pref("webgl.disabled", true);
+
+// Battery API protection
+pref("dom.battery.enabled", false);
+
+// Reduce referrer information leakage
+pref("network.http.referer.trimmingPolicy", 2);  // Trim to origin
+pref("network.http.referer.XOriginTrimmingPolicy", 2);  // Trim XOrigin to origin
+pref("network.http.referer.XOriginPolicy", 2);  // Send only scheme+host+port
+
+// Disable Web Assembly (can be used for fingerprinting)
+pref("javascript.options.wasm", false);
+
+// Disable screen share permissions persistence
+pref("media.getusermedia.screensharing.enabled", false);
+
+// Block mime type sniffing
+pref("security.fileuri.strict_origin_policy", true);
+
+// Disable link preview on hover (privacy)
+pref("browser.hoverTabs.enabled", false);
+
+// Disable WebSocket connections from background tabs
+pref("network.websocket.enabled", true);  // Keep enabled but limit
+
+// Disable geolocation API by default
+pref("geo.enabled", false);
+
+// Disable NFC API by default
+pref("dom.nfc.enabled", false);
+
+// Disable USB API by default
+pref("dom.webusb.enabled", false);
+
+// Enhanced cookie handling - block all third-party cookies
+pref("network.cookie.cookieBehavior", 1);  // Block all third-party cookies
+pref("network.cookie.cookieBehavior.pbmode", 1);
+
+// Cookie auto-deletion for third-party cookies
+pref("network.cookie.thirdparty.sessionOnly", true);
+pref("network.cookie.thirdparty.blockingTimeout", 86400);  // 24 hours
+
+// Enable first-party isolation
+pref("privacy.firstparty.isolate", true);
+
+// Disable saving passwords by default (can be re-enabled by user)
+pref("signon.rememberSignons", false);
+
+// Disable form autofill (privacy consideration)
+pref("browser.formfill.enable", false);
+
+// Disable prefetching
+pref("network.prefetch-next", false);
+pref("network.predictor.enabled", false);
+pref("network.http.speculative-parallel-limit", 0);
+
+// Disable search suggestions from network
+pref("browser.search.suggest.enabled", true);  // Keep local suggestions
+pref("browser.search.noSearchSuggestions", false);
+
+// Disable remote content in messages
+pref("mail.disable_remote_content", true);
+
+// Disable automatic password capture
+pref("loglein.insecure_autologin_enabled", false);
+
+// Disable experiments and studies
+pref("app.shield.optoutstudies.enabled", false);
+pref("browser.newtabpage.activity-stream.telemetry", false);
+pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+
+// Disable health report upload
+pref("datareporting.healthreport.uploadEnabled", false);
+pref("datareporting.healthreport.service.enabled", false);
+pref("datareporting.healthreport.about.reportUrl", "");
+
+// Disable crash reporter telemetry
+pref("browser.crashReports.sendDeploymentType", false);
+pref("browser.crashReports.includeURL", false);
+pref("breakpad.reportURL", "");
+pref("browser.crashreporter.infoURL", "");
+
+// Disable about:glean telemetry
+pref("glean.internalSdkDebuggingEnabled", false);
+pref("glean.debug", false);
+
+// Disable Normandy
+pref("app.normandy.enabled", false);
+pref("app.normandy.api_url", "");
+
+// Disable feature recommendations (Nimbus experiments)
+pref("nimbus.enabled", false);
+
+// Disable remote settings
+pref("services.settings.server", "");
+pref("services.settings.main", "");
+
+// Disable Mozilla VPN promo
+pref("browser.vpn_promo.enabled", false);
+
+// Disable Firefox accounts telemetry
+pref("identity.fxaccounts.telemetry.enabled", false);
+
+// Disable onboarding studies
+pref("browser.shownOnboarding", true);  // Skip onboarding screens
+pref("browser.onboarding.enabled", false);
+pref("browser.onboarding.notification.dismissed", true);
+
+// Disable activity stream sponsored content
+pref("browser.newtabpage.activity-stream.showSponsored", false);
+pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+
+// Disable Pocket integration
+pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
+pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+pref("browser Pocket.enabled", false);
+
+// Disable Screenshot Upload feature
+pref("browser.sharing.screenshot.clipboard-read", false);
+pref("browser.sharing.screenshot.clipboard-write", false);
+pref("browser.sharing.screenshot.upload.enabled", false);
+
+// Disable WebXR
+pref("dom.vr.webxr.enabled", false);
+
+// Disable Gamepad API extensions
+pref("gamepad.extensions.enabled", false);
+
+// Disable SharedArrayBuffer (Spectre mitigation)
+pref("dom.workers.sharedArrayBufferEnabled", false);
+
+// Strict secure contexts
+pref("security.websocket.allowInsecureFromHTTPS", false);
+
+// Disable HTTP auth caching
+pref("network.auth.credential-cache", false);
+pref("network.auth.token-cache", false);
+
+// Block top-level navigations to data: URLs
+pref("security.block_toplevel_data_uri_navigations", true);
+
+// ============================================================
+// End KEC Firefox Privacy Enhancements
+// ============================================================
