@@ -3831,3 +3831,283 @@ pref("security.block_toplevel_data_uri_navigations", true);
 // ============================================================
 // End KEC Firefox Privacy Enhancements
 // ============================================================
+
+// ============================================================
+// KEC Firefox Security Hardening v2
+// ============================================================
+
+// ----- Memory Protection -----
+// Enable memory corruption protections
+pref("security.sanitize.memory_info_before_shutdown", true);
+pref("memory.low_commit_space_threshold_mb", 256);
+pref("memory.low_memory_threshold_mb", 1024);
+pref("memory.low_physical_memory_threshold_mb", 2048);
+
+// Enable heap hardening (if available)
+pref("js.xdr_strict", true);
+
+// ----- Network Security Hardening -----
+// Enforce TLS 1.3 where possible
+pref("security.tls.version.max", 4);
+pref("security.tls.version.min", 3);
+
+// Disable HTTP (non-secure) connections where possible
+pref("security Mixed Content", false);
+
+// Block loading mixed content
+pref("security.mixed_content.block_display_content", true);
+pref("security.mixed_content.block_active_content", true);
+pref("security.mixed_content.send_secure_to_insecure_subrequests", false);
+
+// Disable FTP protocol
+pref("network.jar.blockFTP", true);
+
+// Disable proxy bypass for localhost
+pref("network.proxy.failover_nodes", "localhost,127.0.0.1");
+
+// Disable DNS prefetching (privacy + security)
+pref("network.dns.disablePrefetch", true);
+pref("network.dns.disablePrefetchFromHTTPS", true);
+
+// Disable link prereads
+pref("network.http.check_linethrough", true);
+
+// ----- Content Security Policy (CSP) -----
+// Enable strict CSP enforcement
+pref("security.csp.strict", false);  // Allow but encourage
+pref("security.csp.enable", true);
+pref("security.csp.reportOnly", false);
+
+// ----- XSS Protection -----
+// Enable XSS filter (legacy but still useful)
+pref("dom.ipc.plugins.reportSafetyWarning", true);
+
+// ----- Clickjacking Protection -----
+pref("dom.disable_window_open_feature.location", true);
+pref("dom.disable_window_open_feature.status", true);
+pref("dom.disable_window_open_feature.toolbar", true);
+pref("dom.disable_window_open_feature.menubar", true);
+pref("dom.disable_window_open_feature.scrollbars", true);
+
+// ----- Browser Hardening -----
+// Disable scripted window resizing
+pref("dom.disable_window_resize", true);
+
+// Disable window repositioning
+pref("dom.disable_window_move", true);
+
+// Disable status bar manipulation
+pref("dom.disable_window_statusbar", true);
+
+// Disable toolbar manipulation
+pref("dom.disable_window_toolbar", true);
+
+// Block popups from background tabs
+pref("dom.popup_allowed_events", "click dblclick auxclick mousedown pointerdown");
+
+// Disable document.domain (can be used for bypasses)
+pref("network.cookie.node.disabled", false);
+
+// ----- JavaScript Security -----
+// Disable eval and similar functions in non-chrome pages
+pref("javascript.options.allow_unsafe_about_win", false);
+
+// Disable eval in content
+pref("security.allow_eval_with_non_persistent_activation", false);
+
+// Disable eval in sandboxed iframes
+pref("security.sandbox.content.nested", true);
+
+// ----- Cookie Security -----
+// HttpOnly cookies
+pref("network.cookie.forceEnabled", false);
+
+// SameSite cookie attribute enforcement
+pref("network.cookie.sameSite.laxByDefault", true);
+pref("network.cookie.sameSite.noneRequiresSecure", true);
+
+// ----- Extension Security -----
+// Restrict extension permissions
+pref("extensions.restrictTabPermissions", true);
+pref("extensions.webextensions.restrictedDomains", "");
+
+// Block extensions from accessing private browsing data
+pref("extensions.allowPrivateBrowsingByDefault", false);
+pref("extensions.quickswitch.activeView.enabled", false);
+
+// ----- Download Security -----
+// Block dangerous download types
+pref("browser.download.block_potentially_unsecure_downloads", true);
+pref("browser.download.prevent_insecure_downloads", true);
+
+// Disable opening downloads directly
+pref("browser.download.alwaysOpenWithSystemViewer", false);
+
+// ----- Form Security -----
+// Prevent password manager from sending to insecure sites
+pref("signon.autofillForms.http", false);
+pref("signon.formlessInput.enabled", false);
+
+// ----- Crypto API -----
+// Use secure crypto for WebCrypto where possible
+pref("security.webcrypto.enabled", true);
+pref("security.webcrypto.useSecureRandom", true);
+
+// ----- Process Security -----
+// Enable process separation
+pref("browser.tabs.remote.desktopisolation", true);
+
+// Content process limits for security
+pref("dom.ipc.processCount", 4);
+
+// OOM crash protection
+pref("dom.ipc.crashps.enabled", true);
+
+// ----- Site Isolation -----
+pref("privacy.partition.always_thirdparty_by_default", true);
+pref("privacy.partition.serviceRequest_on_opt_out", true);
+pref("privacy.partition.site_storage_on_any_partition", false);
+
+// ----- Permissions Manager -----
+// Auto-reset permissions for unused sites
+pref("permissions.autoRevoke", true);
+pref("permissions.autoRevoke.timeout", 30);
+
+// ----- Certificate Handling -----
+// Strict certificate checking
+pref("security.pki.sha1_enforcement_level", 2);
+pref("security.pki.crlite_mode", 2);
+pref("security.ssl.enableOCSPStapling", true);
+pref("security.ssl.enableShort-livedCertRevocation", true);
+
+// ----- Media Security -----
+// Disable autoplay of audio/video
+pref("media.autoplay.default", 1);  // Block autoplay
+pref("media.autoplay.ask-permission", true);
+
+// Disable camera/mic access by default
+pref("media.navigator.enabled", false);
+
+// ----- PDF Security -----
+pref("pdfjs.enableScripting", false);
+pref("pdfjs.selectorsPageEnabled", false);
+
+// ----- UI Security -----
+// Disable formless password capture
+pref("incontent.loginfinder", false);
+
+// ----- Clipboard Security -----
+pref("dom.event.clipboardevents.enabled", false);
+
+// ----- History Security -----
+// Clear history on close
+pref("privacy.history.custom", true);
+pref("browser.history.expire_custom_priorities", true);
+
+// ----- Cache Security -----
+// Don't cache HTTP auth
+pref("browser.cache.disk_cache_ssl", false);
+pref("browser.cache.offline.enable", false);
+
+// ----- Proxy Security -----
+// Disable proxy config leakage
+pref("network.proxy.share_proxy_settings", false);
+pref("network.proxy.type", 5);  // Auto-detect
+
+// ----- Security Headers -----
+// Force security headers
+pref("security.mixed_content.use_hsts", true);
+
+// ----- WebExtensions API Security -----
+pref("extensions.webapi.enabled", true);
+pref("extensions.webapi.testing.enabled", false);
+
+// ----- Performance Security -----
+// Disable JIT for untrusted code
+pref("javascript.options.ion", true);
+pref("javascript.options.baselinejit", true);
+pref("javascript.options.ion.exclusiveFilters", "");
+
+// ----- Storage Security -----
+// Encrypt storage where possible
+pref("dom.storage.encrypted", true);
+pref("dom.storage.testing", false);
+
+// ----- Header Security -----
+// Remove referrer on cross-origin
+pref("network.http.referer.hideOnMouseOver", false);
+
+// Block HTTP referrers from HTTPS to HTTP
+pref("network.http.referer.disownOnProxyNavigation", true);
+
+// ----- Network Shield -----
+// Block known malicious hosts
+pref("browser.safebrowsing.enabled", true);
+pref("browser.safebrowsing.malware.enabled", true);
+pref("browser.safebrowsing.phishing.enabled", true);
+pref("browser.safebrowsing.downloads.enabled", true);
+
+// ----- Password Manager Security -----
+pref("signon.encryption.ui.enabled", true);
+pref("signon.schemeUpgrades", true);
+
+// ----- Session Security -----
+pref("browser.sessionstore.max_tabs_undo", 5);
+pref("browser.sessionhistory.max_entries", 50);
+
+// ----- Sanitizer Security -----
+pref("privacy.clearedServices", true);
+pref("privacy.cpd.cache", true);
+pref("privacy.cpd.cookies", true);
+pref("privacy.cpd.history", true);
+pref("privacy.cpd.formdata", true);
+pref("privacy.cpd.sessions", true);
+pref("privacy.cpd.downloads", true);
+pref("privacy.cpd.offlineApps", true);
+pref("privacy.cpd.siteSettings", true);
+
+// ----- Feature Policy -----
+pref("security.feature_policy.enabled", true);
+pref("security.vertical_referral.note_implicit_same_site", true);
+
+// ----- Hardware Security -----
+pref("security.csp.enableDeprecatedDirectives", false);
+
+// ----- Cross-Origin Security -----
+pref("dom.storage.accessible", false);
+pref("dom.serviceWorkers.enabled", true);
+pref("dom.serviceWorkers.parent_intercept", true);
+
+// ----- Spectre/Meltdown Mitigations -----
+pref("browser.cache.disk.enable_priority_suppression", true);
+pref("privacy.window.maxInnerWidth", 1000);
+pref("privacy.window.maxInnerHeight", 1000);
+
+// ----- Additional Hardening -----
+pref("network.http.referer.spoofSource", false);
+pref("browser.videocontrols.test-mode", false);
+pref("network.http.http3.enforceHttp2forWebTransport", true);
+pref("network.http.http3.useObliviousHttp2", false);
+pref("network.http.http3.allowEarlyData", false);
+
+// ----- Windows-Specific Security -----
+#ifdef XP_WIN
+pref("security.sandbox.windows", true);
+pref("security.sandbox.content.win32.enableLowFrag", true);
+#endif
+
+// ----- macOS-Specific Security -----
+#ifdef XP_MACOSX
+pref("security.sandbox.content.mac.trackGpu", true);
+pref("security.sandbox.content.mac.allowHttp", false);
+#endif
+
+// ----- Linux-Specific Security -----
+#ifdef UNIX_BUT_NOT_MAC
+pref("security.sandbox.content.linux_sandbox", true);
+pref("security.sandbox.content.linux.setuid_sandbox", true);
+#endif
+
+// ============================================================
+// End KEC Firefox Security Hardening v2
+// ============================================================

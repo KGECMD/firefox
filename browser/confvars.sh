@@ -12,7 +12,7 @@
 MOZ_BRANDING_DIRECTORY=browser/branding/unofficial
 MOZ_OFFICIAL_BRANDING_DIRECTORY=browser/branding/official
 
-# KEC Firefox Privacy-Focused Build Configuration
+# KEC Firefox Privacy & Security-Focused Build Configuration
 # Disable all telemetry and data collection by default
 MOZ_TELEMETRY_REPORTING=0
 MOZ_DATA_REPORTING=0
@@ -22,3 +22,16 @@ MOZILLA_OFFICIAL=0
 # Disable experiments
 MOZ_EXPERIMENTS=0
 MOZ_SHIELD=0
+
+# Security hardening flags
+MOZ_HARDENING=1
+MOZ_SANDBOX=1
+MOZ_X11=1
+
+# Enable security features
+MOZILLA_OFFICIAL=0
+MOZ_UPDATER=1
+
+# Cross-platform support
+MOZ_X11=1
+MOZ_WIDGET_GTK=1
