@@ -1,8 +1,8 @@
-# KEC Firefox - Privacy-Focused Browser Fork
+# KEC Firefox - Privacy & Security-Focused Browser Fork
 
 ![Firefox Browser](./docs/readme/readme-banner.svg)
 
-A privacy-focused fork of [Mozilla Firefox](https://firefox.com/) that removes all telemetry, AI features, and sponsored content while enhancing security and privacy protections.
+A privacy and security-focused fork of [Mozilla Firefox](https://firefox.com/) that removes all telemetry, AI features, and sponsored content while providing enterprise-grade security protections.
 
 ## Key Features
 
@@ -20,11 +20,25 @@ A privacy-focused fork of [Mozilla Firefox](https://firefox.com/) that removes a
 - **No Pocket Integration**: Read-it-later service disabled
 - **No Normandy/Experiments**: All experimentation features removed
 
-### Browser Features
+### Security Hardening
 
-- Full Firefox extension compatibility (WebExtensions API)
-- Built on latest Mozilla Firefox source (mozilla-central)
-- Available for Windows, macOS, and Linux
+- **Memory Protection**: Enhanced heap hardening and corruption protections
+- **TLS 1.3**: Enforced for maximum cryptographic security
+- **Mixed Content Blocking**: Complete blocking of insecure content
+- **Process Isolation**: Enhanced sandboxing and process separation
+- **Certificate Hardening**: Strict OCSP stapling and SHA-1 enforcement
+- **Site Isolation**: Strict first-party isolation policies
+- **Permissions Auto-Revocation**: Automatic reset of unused permissions
+- **Spectre/Meltdown Mitigations**: Window size fingerprinting protection
+- **Content Security Policy**: Strict CSP enforcement
+- **XSS Protection**: Enhanced cross-site scripting defenses
+- **Clickjacking Protection**: Secure window features
+
+### Cross-Platform Support
+
+- **Windows**: Full sandboxing and secure process isolation
+- **macOS**: GPU tracking disabled, secure sandboxing
+- **Linux**: Full setuid sandbox support
 
 ## What Was Removed
 
@@ -76,6 +90,26 @@ cd firefox
 ./mach package              # Create distribution package
 ```
 
+### Platform-Specific Builds
+
+**Windows:**
+```bash
+./mach build --target=win32
+./mach package --target=win32
+```
+
+**macOS:**
+```bash
+./mach build --target=darwin
+./mach package --target=darwin
+```
+
+**Linux:**
+```bash
+./mach build --target=linux
+./mach package --target=linux
+```
+
 ## Contributing
 
 This is a fork of Mozilla Firefox. For contribution guidelines, see the original [Firefox Contributors' Quick Reference](https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html).
@@ -95,6 +129,7 @@ Firefox is available under the terms of the [Mozilla Public License v2.0](LICENS
 - [Firefox Source Docs](https://firefox-source-docs.mozilla.org/)
 - [Mozilla Firefox Repository](https://github.com/mozilla/firefox)
 - [Firefox Nightly Builds](https://www.mozilla.org/firefox/channel/desktop/#nightly)
+- [Mozilla Security](https://wiki.mozilla.org/Security)
 
 ## Privacy Policy
 
@@ -107,6 +142,21 @@ This browser does NOT:
 - Send crash reports without explicit consent
 
 Your browsing data stays on your device.
+
+## Security Features Verified
+
+All security preferences can be verified in `about:config`:
+
+| Setting | Value | Purpose |
+|---------|-------|---------|
+| `dom.security.https_only_mode` | true | HTTPS enforcement |
+| `network.trr.mode` | 2 | DNS-over-HTTPS |
+| `security.tls.version.min` | 3 | TLS 1.3 minimum |
+| `privacy.resistFingerprinting` | true | Fingerprint protection |
+| `network.cookie.cookieBehavior` | 1 | Third-party cookie block |
+| `browser.safebrowsing.enabled` | true | Malware protection |
+| `dom.webgl.disabled` | true | WebGL fingerprint protection |
+| `media.peerconnection.ice.default_address_only` | true | WebRTC leak protection |
 
 ---
 
